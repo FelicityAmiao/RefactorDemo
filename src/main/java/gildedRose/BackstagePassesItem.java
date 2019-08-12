@@ -1,6 +1,6 @@
 package gildedRose;
 
-public class BackstagePassesItem extends DealItem{
+public class BackstagePassesItem extends DealItem {
 
     public BackstagePassesItem(GildedRose gildedRose) {
         super(gildedRose);
@@ -11,14 +11,10 @@ public class BackstagePassesItem extends DealItem{
         if (gildedRose.isQualityCeilValid()) {
             gildedRose.increase1Quality();
             if (gildedRose.isBackstagePassesSellInLessThan11()) {
-                if (gildedRose.isQualityCeilValid()) {
-                    gildedRose.increase1Quality();
-                }
+                gildedRose.increase1Quality();
             }
             if (gildedRose.isBackstagePassesSellInLessThanSix()) {
-                if (gildedRose.isQualityCeilValid()) {
-                    gildedRose.increase1Quality();
-                }
+                gildedRose.increase1Quality();
             }
         }
         gildedRose.Decrese1SellIn();

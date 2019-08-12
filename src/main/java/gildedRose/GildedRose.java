@@ -54,8 +54,4 @@ public class GildedRose {
     protected void decrese1Quality() {
         items[i].quality = items[i].quality - 1;
     }
-
-    private boolean isSpecifiedItem(String itemName) {
-        return items[i].name.equals(itemName);
-    }
 }

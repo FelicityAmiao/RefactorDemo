@@ -1,6 +1,6 @@
 package gildedRose;
 
-public class AgedBrieItem extends DealItem{
+public class AgedBrieItem extends DealItem {
 
     public AgedBrieItem(GildedRose gildedRose) {
         super(gildedRose);
@@ -8,12 +8,10 @@ public class AgedBrieItem extends DealItem{
 
     @Override
     void dealItem() {
+        gildedRose.Decrese1SellIn();
         if (gildedRose.isQualityCeilValid()) {
             gildedRose.increase1Quality();
-        }
-        gildedRose.Decrese1SellIn();
-        if (gildedRose.isSellInOverDue() && gildedRose.isQualityCeilValid()) {
-            gildedRose.increase1Quality();
+            if (gildedRose.isSellInOverDue()) gildedRose.increase1Quality();
         }
     }
 }
