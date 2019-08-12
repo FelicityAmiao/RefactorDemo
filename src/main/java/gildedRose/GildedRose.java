@@ -44,7 +44,7 @@ public class GildedRose {
                 Decrese1SellIn();
             }
 
-            if (items[i].sellIn < 0) {
+            if (isSellInOverDue()) {
                 if (!isSpecifiedItem("Aged Brie")) {
                     if (!isSpecifiedItem("Backstage passes to a TAFKAL80ETC concert")) {
                         if (isQualityFloorValid()) {
@@ -65,6 +65,10 @@ public class GildedRose {
                 }
             }
         }
+    }
+
+    private boolean isSellInOverDue() {
+        return items[i].sellIn < 0;
     }
 
     private boolean isBackstagePassesSellInLessThanSix() {
