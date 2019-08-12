@@ -15,9 +15,9 @@ public class GildedRose {
                 if (items[i].quality > 0) {
                     if (!isSpecifiedItem("Sulfuras, Hand of Ragnaros")) {
                         if (isSpecifiedItem("Conjured Good")) {
-                            items[i].quality = items[i].quality - 1;
+                            decreseItem1Quality();
                         }
-                        items[i].quality = items[i].quality - 1;
+                        decreseItem1Quality();
                     }
                 }
             } else {
@@ -50,9 +50,9 @@ public class GildedRose {
                         if (items[i].quality > 0) {
                             if (!isSpecifiedItem("Sulfuras, Hand of Ragnaros")) {
                                 if (isSpecifiedItem("Conjured Good")) {
-                                    items[i].quality = items[i].quality - 1;
+                                    decreseItem1Quality();
                                 }
-                                items[i].quality = items[i].quality - 1;
+                                decreseItem1Quality();
                             }
                         }
                     } else {
@@ -65,6 +65,10 @@ public class GildedRose {
                 }
             }
         }
+    }
+
+    private void decreseItem1Quality() {
+        items[i].quality = items[i].quality - 1;
     }
 
     private boolean isSpecifiedItem(String itemName) {
