@@ -105,4 +105,14 @@ public class GildedRoseTest {
 
         assertEquals("Conjured Good, 3, 1", conjuredGood.toString());
     }
+
+    @Test
+    public void should_return_item4DecreaseQuality_when_call_updateQuality_given_0SellIn5QualityConjuredGood() {
+        Item conjuredGood = new Item("Conjured Good", 0, 5);
+        Item[] items = {conjuredGood};
+        GildedRose gildedRose = new GildedRose(items);
+        gildedRose.updateQuality();
+
+        assertEquals("Conjured Good, -1, 1", conjuredGood.toString());
+    }
 }
