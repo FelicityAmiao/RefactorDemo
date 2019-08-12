@@ -15,72 +15,29 @@ public class GildedRose {
                 return;
             }
             if (isSpecifiedItem("Backstage passes to a TAFKAL80ETC concert")) {
-                dealBackstageGood();
+                new BackstagePassesItem(this).dealItem();
                 return;
             }
             if (isSpecifiedItem("Sulfuras, Hand of Ragnaros")) {
                 return;
             }
             if (isSpecifiedItem("Conjured Good")) {
-                dealConjuredGood();
+                new ConjuredGood(this).dealItem();
                 return;
             }
-            dealNormalGood();
+            new NormalGood(this).dealItem();
         }
-    }
-
-    private void dealNormalGood() {
-        Decrese1SellIn();
-        if (isQualityFloorValid()) {
-            decrese1Quality();
-            if (isSellInOverDue()) {
-                decrese1Quality();
-            }
-        }
-    }
-
-    private void dealConjuredGood() {
-        Decrese1SellIn();
-        if(isQualityFloorValid()) {
-            decrese1Quality();
-            decrese1Quality();
-        }
-        if (isSellInOverDue()) {
-            decrese1Quality();
-            decrese1Quality();
-        }
-    }
-
-    private void dealBackstageGood() {
-        if (isQualityCeilValid()) {
-            increase1Quality();
-            if (isBackstagePassesSellInLessThan11()) {
-                if (isQualityCeilValid()) {
-                    increase1Quality();
-                }
-            }
-            if (isBackstagePassesSellInLessThanSix()) {
-                if (isQualityCeilValid()) {
-                    increase1Quality();
-                }
-            }
-        }
-        Decrese1SellIn();
-        if (isSellInOverDue()) {
-            setQuality0();
-        }
-        return;
     }
 
     protected boolean isSellInOverDue() {
         return items[i].sellIn < 0;
     }
 
-    private boolean isBackstagePassesSellInLessThanSix() {
+    protected boolean isBackstagePassesSellInLessThanSix() {
         return items[i].sellIn < 6;
     }
 
-    private boolean isBackstagePassesSellInLessThan11() {
+    protected boolean isBackstagePassesSellInLessThan11() {
         return items[i].sellIn < 11;
     }
 
@@ -92,11 +49,11 @@ public class GildedRose {
         return items[i].quality < 50;
     }
 
-    private boolean isQualityFloorValid() {
+    protected boolean isQualityFloorValid() {
         return items[i].quality > 0;
     }
 
-    private void setQuality0() {
+    protected void setQuality0() {
         items[i].quality = 0;
     }
 
@@ -104,7 +61,7 @@ public class GildedRose {
         items[i].quality = items[i].quality + 1;
     }
 
-    private void decrese1Quality() {
+    protected void decrese1Quality() {
         items[i].quality = items[i].quality - 1;
     }
 
