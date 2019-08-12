@@ -25,4 +25,14 @@ public class GildedRoseTest {
 
         assertEquals("Normal Good, -1, 1", normalGood.toString());
     }
+
+    @Test
+    public void should_return_itemWithOneIncreaseQualityMinus1SellIn_when_call_updateQuality_given_3SellIn25QualityAgeBrieGood() {
+        Item normalGood = new Item("Aged Brie", 3, 25);
+        Item[] items = {normalGood};
+        GildedRose gildedRose = new GildedRose(items);
+        gildedRose.updateQuality();
+
+        assertEquals("Aged Brie, 2, 26", normalGood.toString());
+    }
 }
