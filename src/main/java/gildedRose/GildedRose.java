@@ -30,21 +30,11 @@ public class GildedRose {
             Decrese1SellIn();
 
             if (isSellInOverDue()) {
-                if (!isSpecifiedItem("Aged Brie")) {
-                    if (!isSpecifiedItem("Backstage passes to a TAFKAL80ETC concert")) {
-                        if (isQualityFloorValid()) {
-                            if (isSpecifiedItem("Conjured Good")) {
-                                decrese1Quality();
-                            }
-                            decrese1Quality();
-                        }
-                    } else {
-                        setQuality0();
+                if (isQualityFloorValid()) {
+                    if (isSpecifiedItem("Conjured Good")) {
+                        decrese1Quality();
                     }
-                } else {
-                    if (isQualityCeilValid()) {
-                        increase1Quality();
-                    }
+                    decrese1Quality();
                 }
             }
         }
