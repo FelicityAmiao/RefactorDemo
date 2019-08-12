@@ -10,8 +10,11 @@ public class GildedRose {
 
     public void updateQuality() {
         for (; i < items.length; i++) {
-            if (!isSpecifiedItem("Aged Brie")
-                    && !isSpecifiedItem("Backstage passes to a TAFKAL80ETC concert")) {
+            if (isSpecifiedItem("Aged Brie")) {
+                dealAgedBrieGood();
+                return;
+            }
+            if (!isSpecifiedItem("Backstage passes to a TAFKAL80ETC concert")) {
                 if (isQualityFloorValid()) {
                     if (!isSpecifiedItem("Sulfuras, Hand of Ragnaros")) {
                         if (isSpecifiedItem("Conjured Good")) {
@@ -23,14 +26,12 @@ public class GildedRose {
             } else {
                 if (isQualityCeilValid()) {
                     increase1Quality();
-
                     if (isSpecifiedItem("Backstage passes to a TAFKAL80ETC concert")) {
                         if (isBackstagePassesSellInLessThan11()) {
                             if (isQualityCeilValid()) {
                                 increase1Quality();
                             }
                         }
-
                         if (isBackstagePassesSellInLessThanSix()) {
                             if (isQualityCeilValid()) {
                                 increase1Quality();
@@ -65,6 +66,17 @@ public class GildedRose {
                 }
             }
         }
+    }
+
+    private void dealAgedBrieGood() {
+        if (isQualityCeilValid()) {
+            increase1Quality();
+        }
+        Decrese1SellIn();
+        if (isSellInOverDue() && isQualityCeilValid()) {
+            increase1Quality();
+        }
+        return;
     }
 
     private boolean isSellInOverDue() {
