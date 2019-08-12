@@ -56,7 +56,7 @@ public class GildedRose {
                             }
                         }
                     } else {
-                        items[i].quality = 0;
+                        setQuality0();
                     }
                 } else {
                     if (items[i].quality < 50) {
@@ -65,6 +65,10 @@ public class GildedRose {
                 }
             }
         }
+    }
+
+    private void setQuality0() {
+        items[i].quality = 0;
     }
 
     private void increase1Quality() {
