@@ -21,22 +21,29 @@ public class GildedRose {
             if (isSpecifiedItem("Sulfuras, Hand of Ragnaros")) {
                 return;
             }
-            if (isQualityFloorValid()) {
-                if (isSpecifiedItem("Conjured Good")) {
-                    decrese1Quality();
-                }
-                decrese1Quality();
+            if (isSpecifiedItem("Conjured Good")) {
+                dealConjuredGood();
+                return;
             }
             Decrese1SellIn();
-
-            if (isSellInOverDue()) {
-                if (isQualityFloorValid()) {
-                    if (isSpecifiedItem("Conjured Good")) {
-                        decrese1Quality();
-                    }
+            if (isQualityFloorValid()) {
+                decrese1Quality();
+                if (isSellInOverDue()) {
                     decrese1Quality();
                 }
             }
+        }
+    }
+
+    private void dealConjuredGood() {
+        Decrese1SellIn();
+        if(isQualityFloorValid()) {
+            decrese1Quality();
+            decrese1Quality();
+        }
+        if (isSellInOverDue()) {
+            decrese1Quality();
+            decrese1Quality();
         }
     }
 
