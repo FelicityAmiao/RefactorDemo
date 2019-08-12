@@ -11,7 +11,7 @@ public class GildedRose {
     public void updateQuality() {
         for (; i < items.length; i++) {
             if (isSpecifiedItem("Aged Brie")) {
-                dealAgedBrieGood();
+                new AgedBrieItem(this).dealItem();
                 return;
             }
             if (isSpecifiedItem("Backstage passes to a TAFKAL80ETC concert")) {
@@ -72,18 +72,7 @@ public class GildedRose {
         return;
     }
 
-    private void dealAgedBrieGood() {
-        if (isQualityCeilValid()) {
-            increase1Quality();
-        }
-        Decrese1SellIn();
-        if (isSellInOverDue() && isQualityCeilValid()) {
-            increase1Quality();
-        }
-        return;
-    }
-
-    private boolean isSellInOverDue() {
+    protected boolean isSellInOverDue() {
         return items[i].sellIn < 0;
     }
 
@@ -95,11 +84,11 @@ public class GildedRose {
         return items[i].sellIn < 11;
     }
 
-    private void Decrese1SellIn() {
+    protected void Decrese1SellIn() {
         items[i].sellIn = items[i].sellIn - 1;
     }
 
-    private boolean isQualityCeilValid() {
+    protected boolean isQualityCeilValid() {
         return items[i].quality < 50;
     }
 
@@ -111,7 +100,7 @@ public class GildedRose {
         items[i].quality = 0;
     }
 
-    private void increase1Quality() {
+    protected void increase1Quality() {
         items[i].quality = items[i].quality + 1;
     }
 
