@@ -14,33 +14,18 @@ public class GildedRose {
                 dealAgedBrieGood();
                 return;
             }
-            if (!isSpecifiedItem("Backstage passes to a TAFKAL80ETC concert")) {
-                if (isQualityFloorValid()) {
-                    if (!isSpecifiedItem("Sulfuras, Hand of Ragnaros")) {
-                        if (isSpecifiedItem("Conjured Good")) {
-                            decrese1Quality();
-                        }
+            if (isSpecifiedItem("Backstage passes to a TAFKAL80ETC concert")) {
+                dealBackstageGood();
+                return;
+            }
+            if (isQualityFloorValid()) {
+                if (!isSpecifiedItem("Sulfuras, Hand of Ragnaros")) {
+                    if (isSpecifiedItem("Conjured Good")) {
                         decrese1Quality();
                     }
-                }
-            } else {
-                if (isQualityCeilValid()) {
-                    increase1Quality();
-                    if (isSpecifiedItem("Backstage passes to a TAFKAL80ETC concert")) {
-                        if (isBackstagePassesSellInLessThan11()) {
-                            if (isQualityCeilValid()) {
-                                increase1Quality();
-                            }
-                        }
-                        if (isBackstagePassesSellInLessThanSix()) {
-                            if (isQualityCeilValid()) {
-                                increase1Quality();
-                            }
-                        }
-                    }
+                    decrese1Quality();
                 }
             }
-
             if (!isSpecifiedItem("Sulfuras, Hand of Ragnaros")) {
                 Decrese1SellIn();
             }
@@ -66,6 +51,27 @@ public class GildedRose {
                 }
             }
         }
+    }
+
+    private void dealBackstageGood() {
+        if (isQualityCeilValid()) {
+            increase1Quality();
+            if (isBackstagePassesSellInLessThan11()) {
+                if (isQualityCeilValid()) {
+                    increase1Quality();
+                }
+            }
+            if (isBackstagePassesSellInLessThanSix()) {
+                if (isQualityCeilValid()) {
+                    increase1Quality();
+                }
+            }
+        }
+        Decrese1SellIn();
+        if (isSellInOverDue()) {
+            setQuality0();
+        }
+        return;
     }
 
     private void dealAgedBrieGood() {
