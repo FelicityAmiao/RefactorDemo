@@ -1,12 +1,12 @@
 package gildedRose;
 
-public class AgedBrieItem {
-    private GildedRose gildedRose;
+public class AgedBrieItem extends DealItem{
 
     public AgedBrieItem(GildedRose gildedRose) {
-        this.gildedRose = gildedRose;
+        super(gildedRose);
     }
 
+    @Override
     void dealItem() {
         if (gildedRose.isQualityCeilValid()) {
             gildedRose.increase1Quality();

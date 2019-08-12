@@ -3,29 +3,19 @@ package gildedRose;
 public class GildedRose {
     Item[] items;
     int i = 0;
+    DealItem dealItem;
 
     public GildedRose(Item[] items) {
         this.items = items;
     }
 
+    public void setDealItem(DealItem dealItem) {
+        this.dealItem = dealItem;
+    }
+
     public void updateQuality() {
         for (; i < items.length; i++) {
-            if (isSpecifiedItem("Aged Brie")) {
-                new AgedBrieItem(this).dealItem();
-                return;
-            }
-            if (isSpecifiedItem("Backstage passes to a TAFKAL80ETC concert")) {
-                new BackstagePassesItem(this).dealItem();
-                return;
-            }
-            if (isSpecifiedItem("Sulfuras, Hand of Ragnaros")) {
-                return;
-            }
-            if (isSpecifiedItem("Conjured Good")) {
-                new ConjuredGood(this).dealItem();
-                return;
-            }
-            new NormalGood(this).dealItem();
+            dealItem.dealItem();
         }
     }
 

@@ -11,6 +11,7 @@ public class GildedRoseTest {
         Item normalGood = new Item("Normal Good", 4, 3);
         Item[] items = {normalGood};
         GildedRose gildedRose = new GildedRose(items);
+        gildedRose.setDealItem(new NormalItem(gildedRose));
         gildedRose.updateQuality();
 
         assertEquals("Normal Good, 3, 2", normalGood.toString());
@@ -21,6 +22,7 @@ public class GildedRoseTest {
         Item normalGood = new Item("Normal Good", 0, 3);
         Item[] items = {normalGood};
         GildedRose gildedRose = new GildedRose(items);
+        gildedRose.setDealItem(new NormalItem(gildedRose));
         gildedRose.updateQuality();
 
         assertEquals("Normal Good, -1, 1", normalGood.toString());
@@ -31,6 +33,7 @@ public class GildedRoseTest {
         Item agedBrieGood = new Item("Aged Brie", 3, 25);
         Item[] items = {agedBrieGood};
         GildedRose gildedRose = new GildedRose(items);
+        gildedRose.setDealItem(new AgedBrieItem(gildedRose));
         gildedRose.updateQuality();
 
         assertEquals("Aged Brie, 2, 26", agedBrieGood.toString());
@@ -41,6 +44,7 @@ public class GildedRoseTest {
         Item agedBrieGood = new Item("Aged Brie", 0, 25);
         Item[] items = {agedBrieGood};
         GildedRose gildedRose = new GildedRose(items);
+        gildedRose.setDealItem(new AgedBrieItem(gildedRose));
         gildedRose.updateQuality();
 
         assertEquals("Aged Brie, -1, 27", agedBrieGood.toString());
@@ -51,6 +55,7 @@ public class GildedRoseTest {
         Item sulfurasGood = new Item("Sulfuras, Hand of Ragnaros", 20, 80);
         Item[] items = {sulfurasGood};
         GildedRose gildedRose = new GildedRose(items);
+        gildedRose.setDealItem(new SulfurasItem(gildedRose));
         gildedRose.updateQuality();
 
         assertEquals("Sulfuras, Hand of Ragnaros, 20, 80", sulfurasGood.toString());
@@ -61,6 +66,7 @@ public class GildedRoseTest {
         Item backstagePassesGood = new Item("Backstage passes to a TAFKAL80ETC concert", 20, 30);
         Item[] items = {backstagePassesGood};
         GildedRose gildedRose = new GildedRose(items);
+        gildedRose.setDealItem(new BackstagePassesItem(gildedRose));
         gildedRose.updateQuality();
 
         assertEquals("Backstage passes to a TAFKAL80ETC concert, 19, 31", backstagePassesGood.toString());
@@ -71,6 +77,7 @@ public class GildedRoseTest {
         Item backstagePassesGood = new Item("Backstage passes to a TAFKAL80ETC concert", 7, 30);
         Item[] items = {backstagePassesGood};
         GildedRose gildedRose = new GildedRose(items);
+        gildedRose.setDealItem(new BackstagePassesItem(gildedRose));
         gildedRose.updateQuality();
 
         assertEquals("Backstage passes to a TAFKAL80ETC concert, 6, 32", backstagePassesGood.toString());
@@ -81,6 +88,7 @@ public class GildedRoseTest {
         Item backstagePassesGood = new Item("Backstage passes to a TAFKAL80ETC concert", 5, 30);
         Item[] items = {backstagePassesGood};
         GildedRose gildedRose = new GildedRose(items);
+        gildedRose.setDealItem(new BackstagePassesItem(gildedRose));
         gildedRose.updateQuality();
 
         assertEquals("Backstage passes to a TAFKAL80ETC concert, 4, 33", backstagePassesGood.toString());
@@ -91,6 +99,7 @@ public class GildedRoseTest {
         Item backstagePassesGood = new Item("Backstage passes to a TAFKAL80ETC concert", 0, 30);
         Item[] items = {backstagePassesGood};
         GildedRose gildedRose = new GildedRose(items);
+        gildedRose.setDealItem(new BackstagePassesItem(gildedRose));
         gildedRose.updateQuality();
 
         assertEquals("Backstage passes to a TAFKAL80ETC concert, -1, 0", backstagePassesGood.toString());
@@ -101,6 +110,7 @@ public class GildedRoseTest {
         Item conjuredGood = new Item("Conjured Good", 4, 3);
         Item[] items = {conjuredGood};
         GildedRose gildedRose = new GildedRose(items);
+        gildedRose.setDealItem(new ConjuredItem(gildedRose));
         gildedRose.updateQuality();
 
         assertEquals("Conjured Good, 3, 1", conjuredGood.toString());
@@ -111,6 +121,7 @@ public class GildedRoseTest {
         Item conjuredGood = new Item("Conjured Good", 0, 5);
         Item[] items = {conjuredGood};
         GildedRose gildedRose = new GildedRose(items);
+        gildedRose.setDealItem(new ConjuredItem(gildedRose));
         gildedRose.updateQuality();
 
         assertEquals("Conjured Good, -1, 1", conjuredGood.toString());

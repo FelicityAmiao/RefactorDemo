@@ -1,12 +1,12 @@
 package gildedRose;
 
-public class BackstagePassesItem {
-    private GildedRose gildedRose;
+public class BackstagePassesItem extends DealItem{
 
     public BackstagePassesItem(GildedRose gildedRose) {
-        this.gildedRose = gildedRose;
+        super(gildedRose);
     }
 
+    @Override
     public void dealItem() {
         if (gildedRose.isQualityCeilValid()) {
             gildedRose.increase1Quality();

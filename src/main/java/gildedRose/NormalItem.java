@@ -1,12 +1,12 @@
 package gildedRose;
 
-public class NormalGood {
-    private GildedRose gildedRose;
+public class NormalItem extends DealItem{
 
-    public NormalGood(GildedRose gildedRose) {
-        this.gildedRose = gildedRose;
+    public NormalItem(GildedRose gildedRose) {
+        super(gildedRose);
     }
 
+    @Override
     public void dealItem() {
         gildedRose.Decrese1SellIn();
         if (gildedRose.isQualityFloorValid()) {
