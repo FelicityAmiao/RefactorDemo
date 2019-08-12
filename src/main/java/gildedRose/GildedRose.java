@@ -25,12 +25,16 @@ public class GildedRose {
                 dealConjuredGood();
                 return;
             }
-            Decrese1SellIn();
-            if (isQualityFloorValid()) {
+            dealNormalGood();
+        }
+    }
+
+    private void dealNormalGood() {
+        Decrese1SellIn();
+        if (isQualityFloorValid()) {
+            decrese1Quality();
+            if (isSellInOverDue()) {
                 decrese1Quality();
-                if (isSellInOverDue()) {
-                    decrese1Quality();
-                }
             }
         }
     }
