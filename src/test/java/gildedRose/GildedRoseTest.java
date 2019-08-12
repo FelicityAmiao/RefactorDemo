@@ -35,4 +35,24 @@ public class GildedRoseTest {
 
         assertEquals("Aged Brie, 2, 26", normalGood.toString());
     }
+
+    @Test
+    public void should_return_itemWithOneIncreaseQualityMinus1SellIn_when_call_updateQuality_given_0SellIn25QualityAgeBrieGood() {
+        Item normalGood = new Item("Aged Brie", 0, 25);
+        Item[] items = {normalGood};
+        GildedRose gildedRose = new GildedRose(items);
+        gildedRose.updateQuality();
+
+        assertEquals("Aged Brie, -1, 27", normalGood.toString());
+    }
+
+    @Test
+    public void should_return_itemWithoutChange_when_call_updateQuality_given_20SellIn80QualitySulfurasGood() {
+        Item normalGood = new Item("Sulfuras, Hand of Ragnaros", 20, 80);
+        Item[] items = {normalGood};
+        GildedRose gildedRose = new GildedRose(items);
+        gildedRose.updateQuality();
+
+        assertEquals("Sulfuras, Hand of Ragnaros, 20, 80", normalGood.toString());
+    }
 }
