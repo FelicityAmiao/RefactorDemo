@@ -28,31 +28,41 @@ public class GildedRoseTest {
 
     @Test
     public void should_return_itemWithOneIncreaseQualityMinus1SellIn_when_call_updateQuality_given_3SellIn25QualityAgeBrieGood() {
-        Item normalGood = new Item("Aged Brie", 3, 25);
-        Item[] items = {normalGood};
+        Item agedBrieGood = new Item("Aged Brie", 3, 25);
+        Item[] items = {agedBrieGood};
         GildedRose gildedRose = new GildedRose(items);
         gildedRose.updateQuality();
 
-        assertEquals("Aged Brie, 2, 26", normalGood.toString());
+        assertEquals("Aged Brie, 2, 26", agedBrieGood.toString());
     }
 
     @Test
     public void should_return_itemWithOneIncreaseQualityMinus1SellIn_when_call_updateQuality_given_0SellIn25QualityAgeBrieGood() {
-        Item normalGood = new Item("Aged Brie", 0, 25);
-        Item[] items = {normalGood};
+        Item agedBrieGood = new Item("Aged Brie", 0, 25);
+        Item[] items = {agedBrieGood};
         GildedRose gildedRose = new GildedRose(items);
         gildedRose.updateQuality();
 
-        assertEquals("Aged Brie, -1, 27", normalGood.toString());
+        assertEquals("Aged Brie, -1, 27", agedBrieGood.toString());
     }
 
     @Test
     public void should_return_itemWithoutChange_when_call_updateQuality_given_20SellIn80QualitySulfurasGood() {
-        Item normalGood = new Item("Sulfuras, Hand of Ragnaros", 20, 80);
-        Item[] items = {normalGood};
+        Item sulfurasGood = new Item("Sulfuras, Hand of Ragnaros", 20, 80);
+        Item[] items = {sulfurasGood};
         GildedRose gildedRose = new GildedRose(items);
         gildedRose.updateQuality();
 
-        assertEquals("Sulfuras, Hand of Ragnaros, 20, 80", normalGood.toString());
+        assertEquals("Sulfuras, Hand of Ragnaros, 20, 80", sulfurasGood.toString());
+    }
+
+    @Test
+    public void should_return_itemNormalIncreaseQuality_when_call_updateQuality_given_20SellIn30QualityBackstagePassesGood() {
+        Item backstagePassesGood = new Item("Backstage passes to a TAFKAL80ETC concert", 20, 30);
+        Item[] items = {backstagePassesGood};
+        GildedRose gildedRose = new GildedRose(items);
+        gildedRose.updateQuality();
+
+        assertEquals("Backstage passes to a TAFKAL80ETC concert, 19, 31", backstagePassesGood.toString());
     }
 }
