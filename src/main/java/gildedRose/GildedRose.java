@@ -15,25 +15,25 @@ public class GildedRose {
                 if (items[i].quality > 0) {
                     if (!isSpecifiedItem("Sulfuras, Hand of Ragnaros")) {
                         if (isSpecifiedItem("Conjured Good")) {
-                            decreseItem1Quality();
+                            decrese1Quality();
                         }
-                        decreseItem1Quality();
+                        decrese1Quality();
                     }
                 }
             } else {
                 if (items[i].quality < 50) {
-                    items[i].quality = items[i].quality + 1;
+                    increase1Quality();
 
                     if (isSpecifiedItem("Backstage passes to a TAFKAL80ETC concert")) {
                         if (items[i].sellIn < 11) {
                             if (items[i].quality < 50) {
-                                items[i].quality = items[i].quality + 1;
+                                increase1Quality();
                             }
                         }
 
                         if (items[i].sellIn < 6) {
                             if (items[i].quality < 50) {
-                                items[i].quality = items[i].quality + 1;
+                                increase1Quality();
                             }
                         }
                     }
@@ -50,9 +50,9 @@ public class GildedRose {
                         if (items[i].quality > 0) {
                             if (!isSpecifiedItem("Sulfuras, Hand of Ragnaros")) {
                                 if (isSpecifiedItem("Conjured Good")) {
-                                    decreseItem1Quality();
+                                    decrese1Quality();
                                 }
-                                decreseItem1Quality();
+                                decrese1Quality();
                             }
                         }
                     } else {
@@ -60,14 +60,18 @@ public class GildedRose {
                     }
                 } else {
                     if (items[i].quality < 50) {
-                        items[i].quality = items[i].quality + 1;
+                        increase1Quality();
                     }
                 }
             }
         }
     }
 
-    private void decreseItem1Quality() {
+    private void increase1Quality() {
+        items[i].quality = items[i].quality + 1;
+    }
+
+    private void decrese1Quality() {
         items[i].quality = items[i].quality - 1;
     }
 
