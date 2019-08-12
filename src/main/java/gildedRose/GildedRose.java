@@ -18,28 +18,25 @@ public class GildedRose {
                 dealBackstageGood();
                 return;
             }
+            if (isSpecifiedItem("Sulfuras, Hand of Ragnaros")) {
+                return;
+            }
             if (isQualityFloorValid()) {
-                if (!isSpecifiedItem("Sulfuras, Hand of Ragnaros")) {
-                    if (isSpecifiedItem("Conjured Good")) {
-                        decrese1Quality();
-                    }
+                if (isSpecifiedItem("Conjured Good")) {
                     decrese1Quality();
                 }
+                decrese1Quality();
             }
-            if (!isSpecifiedItem("Sulfuras, Hand of Ragnaros")) {
-                Decrese1SellIn();
-            }
+            Decrese1SellIn();
 
             if (isSellInOverDue()) {
                 if (!isSpecifiedItem("Aged Brie")) {
                     if (!isSpecifiedItem("Backstage passes to a TAFKAL80ETC concert")) {
                         if (isQualityFloorValid()) {
-                            if (!isSpecifiedItem("Sulfuras, Hand of Ragnaros")) {
-                                if (isSpecifiedItem("Conjured Good")) {
-                                    decrese1Quality();
-                                }
+                            if (isSpecifiedItem("Conjured Good")) {
                                 decrese1Quality();
                             }
+                            decrese1Quality();
                         }
                     } else {
                         setQuality0();
